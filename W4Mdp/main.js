@@ -7,30 +7,17 @@ function bio() {
 let data = JSON.parse(this.responseText);
 console.log(data);
 name.textContent = data.name;
-biog.innerHTML = `<li>${data.name}</li>
-                    <li>${data.html_url}</li>
-                    <li>${data.email}</li>
-                    <li>${data.company}</li>
-                    <li>${data.blog}</li> `;
+biog.innerHTML = `<li><h4>Name: <span class="text">${data.name}</span></h4></li>
+                    <li><h4>Github Url: <span class="text">${data.html_url}</span></h4></li>
+                    <li><h4>Email: <span class="text">${data.email}</span></h4></li>
+                    <li><h4>Company: <span class="text">${data.company}</span></h4></li>
+                    <li><h4>Website: <span class="text">${data.blog}</span></h4></li> `;
 parag.textContent = data.bio;
 avatar.src = data.avatar_url;
-
-
 }
-// let characters = document.querySelector("bio")
-//   bio.innerHTML+= `<li>
-//   ${data.results.name}
-//   </li>`
-// let theBasics = document.getElementById("the_basics");
-// let list = document.createElement("li");
-// li.appendChild("li")
-// let paragraph1 = element.textContent("p_basics");
-// p_basics.appendChild("li")
-
-
 
 
 let req = new XMLHttpRequest();
-req.open("GET", "http://192.168.1.12:8000/octocat");
+req.open("GET", "https://api.github.com/users/KristaLee16");
 req.addEventListener("load", bio);
 req.send();
